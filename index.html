@@ -164,7 +164,7 @@
         </section>
 
         <!-- Careers Section -->
-<section id="careers" class="py-20 bg-gray-100">
+        <section id="careers" class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12">Join Our Team</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -181,8 +181,7 @@
         </div>
 
         <!-- Add more job listings here if needed -->
-    </div>
-</section>
+    </section>
 
 <!-- Modal Form -->
 <div id="modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
@@ -305,81 +304,137 @@
                         <option value="Learnt Only">I have only learnt the software</option>
                     </select>
                     <label class="block mb-2">Years of Professional Experience</label>
+                    <input type="number" name="years_experience[]" class="w-full px-3 py-2 text-gray-800 rounded border border-black" min="0">
+                </div>
 
+                <!-- Other Construction-Related Software -->
+                <div class="mb-4">
+                    <label class="block mb-2">Other Construction-Related Software</label>
+                    <textarea name="other_software" rows="3" class="w-full px-3 py-2 text-gray-800 rounded border border-black"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition">Submit Application</button>
+        </form>
+        <button onclick="closeModal()" class="mt-4 text-gray-600 hover:text-gray-800">Close</button>
+    </div>
+</div>
+
+<!-- JavaScript remains the same as previous -->
+<script>
+    let jobSectionCount = 1;
+
+    function openModal(jobTitle) {
+        document.getElementById('modal').classList.remove('hidden');
+        document.getElementById('jobTitle').value = jobTitle;
+        document.getElementById('modalTitle').textContent = "Apply for " + jobTitle;
+    }
+
+    function closeModal() {
+        document.getElementById('modal').classList.add('hidden');
+    }
+
+    function addJobSection() {
+        jobSectionCount++;
+        const jobSection = document.createElement('div');
+        jobSection.className = 'job-section mb-4 p-4 border border-black rounded';
+        jobSection.id = 'job-section-' + jobSectionCount;
+        jobSection.innerHTML = `
+            <label class="block mb-2">Employer ${jobSectionCount}</label>
+            <label for="employer_name" class="block mb-2">Employer's Name</label>
+            <input type="text" name="employer_name[]" class="w-full px-3 py-2 text-gray-800 rounded border border-black" required>
+
+            <label for="start_date" class="block mt-4 mb-2">Starting Year and Month</label>
+            <input type="month" name="start_date[]" class="w-full px-3 py-2 text-gray-800 rounded border border-black" required>
+
+            <label for="end_date" class="block mt-4 mb-2">End Year and Month</label>
+            <input type="month" name="end_date[]" class="w-full px-3 py-2 text-gray-800 rounded border border-black">
+
+            <div class="mt-4">
+                <input type="checkbox" name="still_working[]" value="1" class="mr-2">
+                <label>Still Working Here</label>
+            </div>
+
+            <label for="duties" class="block mt-4 mb-2">Briefly explain your duties</label>
+            <textarea name="duties[]" rows="3" class="w-full px-3 py-2 text-gray-800 rounded border border-black" required></textarea>
+        `;
+        document.getElementById('job-experience-sections').appendChild(jobSection);
+    }
+</script>
+</body>
 
 
         <!-- Get a Quote Section -->
-<section id="quote" class="py-20 bg-secondary text-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center">Get a Quote from Us</h2>
-        <!-- Change the form tag to POST and point it to your PHP file -->
-        <form action="your-php-file.php" method="POST" class="max-w-lg mx-auto">
-            <div class="mb-4">
-                <label for="name" class="block mb-2">Name</label>
-                <input type="text" id="name" name="name" class="w-full px-3 py-2 text-gray-800 rounded" required>
+        <section id="quote" class="py-20 bg-secondary text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-8 text-center">Get a Quote from Us</h2>
+                <form class="max-w-lg mx-auto">
+                    <div class="mb-4">
+                        <label for="name" class="block mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 text-gray-800 rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 text-gray-800 rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="phone" class="block mb-2">Phone</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 text-gray-800 rounded" required>
+                    </div>
+		      <div class="mb-4">
+                        <label for="Project Name" class="block mb-2">Project Name</label>
+                        <input type="Project Name" id="Project Name" name="Project Name" class="w-full px-3 py-2 text-gray-800 rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="project" class="block mb-2">Project Details</label>
+                        <textarea id="project" name="project" rows="4" class="w-full px-3 py-2 text-gray-800 rounded" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-white text-secondary font-bold py-2 px-4 rounded hover:bg-blue-600 transition">Submit</button>
+                </form>
             </div>
-            <div class="mb-4">
-                <label for="email" class="block mb-2">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-3 py-2 text-gray-800 rounded" required>
-            </div>
-            <div class="mb-4">
-                <label for="phone" class="block mb-2">Phone</label>
-                <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 text-gray-800 rounded" required>
-            </div>
-            <div class="mb-4">
-                <label for="project_name" class="block mb-2">Project Name</label>
-                <input type="text" id="project_name" name="project_name" class="w-full px-3 py-2 text-gray-800 rounded" required>
-            </div>
-            <div class="mb-4">
-                <label for="project" class="block mb-2">Project Details</label>
-                <textarea id="project" name="project" rows="4" class="w-full px-3 py-2 text-gray-800 rounded" required></textarea>
-            </div>
-            <button type="submit" class="bg-white text-secondary font-bold py-2 px-4 rounded hover:bg-blue-600 transition">Submit</button>
-        </form>
-    </div>
-</section>
+        </section>
 
-<section id="contact" class="py-20 bg-secondary text-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center">Contact Us</h2>
-        <div class="flex flex-wrap justify-center">
-            <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
-                <h3 class="text-xl font-bold mb-2">Address</h3>
-                <p>17 Padside Row, Hamilton</p>
-                <p>Leicester, LE5 1WA</p>
+        <section id="contact" class="py-20 bg-secondary text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
+                        <h3 class="text-xl font-bold mb-2">Address</h3>
+                        <p>17 Padside Row, Hamilton</p>
+                        <p>Leicester, LE5 1WA</p>
+                    </div>
+                    <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
+                        <h3 class="text-xl font-bold mb-2">Phone</h3>
+                        <p>+447414481840</p>
+                    </div>
+                    <div class="w-full md:w-1/3 text-center">
+                        <h3 class="text-xl font-bold mb-2">Email</h3>
+                        <p>info@dwconsultancies.com</p>
+                    </div>
+                </div>
             </div>
-            <div class="w-full md:w-1/3 text-center mb-8 md:mb-0">
-                <h3 class="text-xl font-bold mb-2">Phone</h3>
-                <p>+447414481840</p>
-            </div>
-            <div class="w-full md:w-1/3 text-center">
-                <h3 class="text-xl font-bold mb-2">Email</h3>
-                <p>info@dwconsultancies.com</p>
-            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white text-secondary py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 DW Consultancies. All rights reserved. Subsidiary of DW Engineering Co. Ltd (Company No. 09315643)</p>
         </div>
-    </div>
-</section>
+    </footer>
 
-</main>
-
-<footer class="bg-white text-secondary py-8">
-    <div class="container mx-auto px-6 text-center">
-        <p>&copy; 2024 DW Consultancies. All rights reserved. Subsidiary of DW Engineering Co. Ltd (Company No. 09315643)</p>
-    </div>
-</footer>
-
-<script>
-    // Add any necessary JavaScript here
-    // For example, smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    <script>
+        // Add any necessary JavaScript here
+        // For example, smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
 

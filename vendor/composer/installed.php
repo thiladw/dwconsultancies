@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'thiladw/dwconsultancies',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b2fc5649c66139f9f090ad2c856e0d467c7a4681',
+        'reference' => '73d87c3dd5742eed91459aa83f7fd5b87aa32da4',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'b2fc5649c66139f9f090ad2c856e0d467c7a4681',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'ezyang/htmlpurifier' => array(
             'pretty_version' => 'v4.18.0',
             'version' => '4.18.0.0',
@@ -106,6 +97,15 @@
             'reference' => '764e0b3939f5ca87cb904f570ef9be2d78a07865',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/simple-cache',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'thiladw/dwconsultancies' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '73d87c3dd5742eed91459aa83f7fd5b87aa32da4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
