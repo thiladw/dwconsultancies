@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+ HEAD
     "require": {
         "phpmailer/phpmailer": "^6.5",
         "phpoffice/phpspreadsheet": "^1.18"
