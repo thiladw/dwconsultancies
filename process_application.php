@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 require 'vendor/autoload.php';
 
@@ -128,3 +129,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+ff9fa31d8ad53fcd023fc83022301fae2f7d572c

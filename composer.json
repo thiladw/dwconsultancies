@@ -1,6 +1,8 @@
 {
+<<<<<<< HEAD
     "require": {
         "phpmailer/phpmailer": "^6.5",
         "phpoffice/phpspreadsheet": "^1.18"
     }
+ff9fa31d8ad53fcd023fc83022301fae2f7d572c
 }

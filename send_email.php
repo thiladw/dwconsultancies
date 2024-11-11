@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -26,4 +27,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "There was a problem sending your message. Please try again later.";
     }
 }
+ ff9fa31d8ad53fcd023fc83022301fae2f7d572c
 ?>
