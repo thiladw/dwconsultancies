@@ -1,4 +1,3 @@
- HEAD
 <?php
 require 'vendor/autoload.php';
 
@@ -8,6 +7,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
     $jobTitle = $_POST['jobTitle'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -57,19 +57,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $message .= "Other Construction-Related Software: $otherSoftware\n";
 
-    // Send email to both addresses
+    // Send email to both you and Thilakshana
     $mail = new PHPMailer(true);
     try {
         $mail->setFrom('no-reply@yourdomain.com', 'Job Application');
         
-        // Add multiple recipients
-        $mail->addAddress('info@dwconsultancies.com');
-        $mail->addAddress('thilakshana@dwconsultancies.com');  // Add second recipient
-        
+        // Add both recipients (your email and Thilakshana's email)
+        $mail->addAddress('info@dwconsultancies.com');  // Your email
+        $mail->addAddress('thilakshana@dwconsultancies.com');  // Thilakshana's email
+
         $mail->Subject = $subject;
         $mail->Body = $message;
         
-        // Attach resume
+        // Attach resume (PDF)
         if (is_uploaded_file($resumePath)) {
             $mail->addAttachment($resumePath, $resumeName);
         }
@@ -113,13 +113,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row++;
     }
 
-    // Save file and attach to email
+    // Save the file to the server
     $writer = new Xlsx($spreadsheet);
     $fileName = "Applicant_Data_$jobTitle.xlsx";
-    $filePath = "path/to/your/upload/directory/$fileName";
+    $filePath = "uploads/$fileName";  // Make sure the folder exists or change path as needed
     $writer->save($filePath);
 
-    // Attach summary Excel file to email
+    // Attach summary Excel file to the email
     try {
         $mail->addAttachment($filePath);
         $mail->send();
@@ -129,4 +129,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-ff9fa31d8ad53fcd023fc83022301fae2f7d572c
