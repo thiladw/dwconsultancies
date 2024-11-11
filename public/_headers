@@ -1,2 +1,2 @@
-/  # Apply to the entire site
-  Basic-Auth: hiranyadickwella:memko2
+/  # This applies to the entire site
+  Authorization: Basic aGlyYW55YWRpY2t3ZWxsYTptZW1rbzI=
